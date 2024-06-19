@@ -1,0 +1,104 @@
+<div class="container">
+
+    <form [formGroup]="formulaire" (ngSubmit)="onSubmit()" class="mt-4 formulaire">
+
+        <h3>Je pars de :</h3>
+        <mat-form-field class="example-full-width" >
+            <mat-label>Ville de départ</mat-label>
+            <input matInput formControlName="depart_travel" type="text" placeholder="ville de depart">
+            <mat-error>Le champs est obligatoire</mat-error>
+        </mat-form-field>
+
+        <h3>A destination de :</h3>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Arrivée:</mat-label>
+            <input matInput formControlName="destination_travel" type="text" placeholder="destination">
+            <mat-error>Le champs est obligatoire</mat-error>
+        </mat-form-field>
+
+        <h3>horaire de départ:</h3>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>horaire </mat-label>
+            <input matInput type="time"  formControlName="start_hour_travel" placeholder="Ex. 10h">
+        </mat-form-field>
+        
+        <h3>horaire prévu d'arrivée:</h3>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>horaire</mat-label>
+            <input matInput type="time" formControlName="start_end_travel" placeholder="Ex. 10h">
+        </mat-form-field>
+
+        <h3>Nombre de places disponibles</h3>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre de place disponible</mat-label>
+            <select matNativeControl formControlName="nbre_sits_travel" required>
+                <option value="0">Places disponibles</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <mat-error>Vous devez indiquer le nombre de place disponible au co-voiturage</mat-error>
+        </mat-form-field>
+
+        <h3>Mon véhicule</h3>
+
+        <mat-form-field class="example-full-width">
+            <mat-label formControlName="car_travel">Véhicule</mat-label>
+            <select matNativeControl required>
+                <option value="">Votre véhicule</option>
+                <option value="volvo">Volvo</option>
+                <option value="Citroen">Citroen</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="Renault">Renault</option>
+                <option value="Ford">Ford</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Nissan">Mercedes</option>
+                <option value="BMW">BMW</option>
+                <option value="Dacia">Dacia</option>
+                <option value="Mini">Mini</option>
+                <option value="Opel">Opel</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Autre">Autres...</option>
+            </select>
+        </mat-form-field>
+
+        <h3>Mes préférences de trajet</h3>
+
+        <mat-radio-group aria-label="Select an option" formControlName="pref_travel">
+            <mat-radio-button value="Non Fumeur">Non Fumeur</mat-radio-button>
+            <mat-radio-button value="Fumeur">Fumeur</mat-radio-button>
+            <mat-radio-button value="Animaux">Aime les animaux</mat-radio-button>
+            <mat-radio-button value="Musique">Adore la musique</mat-radio-button>
+            <mat-radio-button value="Siége enfant">Siège enfants</mat-radio-button>
+            <mat-radio-button value="handicap">Adapté aux handicaps</mat-radio-button>
+            <mat-radio-button value="Etapes">Accepte les étapes</mat-radio-button>
+        </mat-radio-group>
+
+        <h3>Commentaires sur le trajet :</h3>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Ajouter un commentaire (optionnel)</mat-label>
+            <textarea matInput formControlName="comment_travel"  type="text" placeholder="Ex. ajouter votre commentaire"></textarea>
+        </mat-form-field>
+
+        <div>
+            <button mat-raised-button color="warn"> Ajouter le trajet</button>
+        </div>
+        <br>
+        <div>
+            <button type="reset" mat-raised-button color="warn"> Abandonner le trajet</button>
+        </div>
+        
+    </form>
+</div>
+
+
+<p>travel works!</p>

@@ -1,0 +1,48 @@
+<div class="container">
+
+    <form [formGroup]="formulaire" (ngSubmit)="onSubmit()" class="mt-4 formulaire"> <!-- crochet pour les objets -->
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="ex: macron.emmanuel@stagiaires.mns.com" >
+            @if(formulaire.get("email")?.hasError("required")){
+                <mat-error>Le champs est obligatoire</mat-error>
+            } @else if(formulaire.get("email")?.hasError("email")){
+                <mat-error>Le format est incorrect. Veuillez inscrire le format stagiaires.mns.com</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Prénom</mat-label>
+            <input matInput formControlName="firstname" type="text" placeholder="ex: Emmanuel">
+            <mat-error>Le champs est obligatoire</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Nom de famille</mat-label>
+            <input matInput formControlName="lastname" type="text" placeholder="ex: MACRON">
+            <mat-error>Le champs est obligatoire</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Rôle </mat-label>
+            <mat-select formControlName="role"><!--track vérifie l'existence de nouveau role-->
+                @for (role of listeRoles; track role) {
+                <mat-option [value]="role">{{role}}</mat-option>
+                }
+            </mat-select>
+            <mat-error>Le champs est obligatoire</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Valider</button>
+
+    </form>
+
+</div>
+
+<p>edit-user works!</p>

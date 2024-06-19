@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a routerLink="/home" class="navbar-brand" href="#">Carpool</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a routerLink="/home" 
+          routerLinkActive="active" 
+          class="nav-link active" 
+          aria-current="page" href="#">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/trajet" 
+          routerLinkActive="active" 
+          class="nav-link active" aria-current="page" href="#">Trajet</a>
+        </li>
+
+        <!--condition d'affichage admin-->
+        @if(authentification.role == "administrateur"){
+          <li class="nav-item">
+            <a routerLink="/manage-user" 
+            routerLinkActive="active" 
+            class="nav-link" href="#">Gestion utilisateurs</a>
+          </li>
+        }
+
+        @if(authentification.role == "administrateur" || authentification.role == "modérateur"){
+          <li class="nav-item">
+            <a routerLink="/manage-travel" 
+            routerLinkActive="active" 
+            class="nav-link" href="#">Gestion Trajets</a>
+          </li>
+        }
+
+        @if(authentification.role == undefined){
+        <li class="nav-item">
+          <a routerLink="/connexion" 
+          routerLinkActive="active" 
+          class="nav-link" >Login</a>
+        </li>
+        } @else {
+          <li class="nav-item">
+            <a (click)="onDeconnexion()" class="nav-link">
+              logout
+            </a>
+          </li>
+        }
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<h1>Carpool MNS</h1>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+//formulaire trajet
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-mdc-snack-bar-container {
+
+    &.valid .mdc-snackbar__surface {
+        background-color: rgb(82, 253, 122);
+    }
+
+    &.error .mdc-snackbar__surface {
+        background-color: rgb(148, 58, 58);
+    }
+
+}
